@@ -15,7 +15,9 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -32,31 +34,36 @@ header {
     padding: 0 20px;
 }
 
-nav ul {
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu li {
+    align-content: center;
+    height: 2ch;
     margin-right: 20px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-left: 15px;
-}
-
-nav ul li:first-child {
-    margin-left: 0;
-}
-
-nav ul li a {
+.menu a, .menu button {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
-    transition: color 0.3s;
+    padding: 10px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: #ffd700;
+.menu a:hover, .menu button:hover {
+    background-color: #004368;
 }
 
 main {
@@ -64,12 +71,16 @@ main {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Ensure content below header */
+    flex: 1;
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
 }
 
 .section {
@@ -77,9 +88,6 @@ main {
 }
 
 form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
     text-align: left;
 }
 
@@ -89,23 +97,24 @@ label {
     display: block;
 }
 
-input[type="number"], select {
+input[type="text"], input[type="password"], select {
     width: calc(100% - 22px);
     padding: 10px;
     margin: 5px 0 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #005f8c;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -117,10 +126,11 @@ button:hover {
 }
 
 .loan-application {
-    padding: 20px;
+    background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .loan-application h3 {
@@ -131,4 +141,57 @@ button:hover {
     margin-top: 10px;
     font-size: 14px;
     color: #666;
+}
+
+/* Loan Amount Buttons */
+#loanAmountButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#loanAmountButtons button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #005f8c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#loanAmountButtons button:hover {
+    background-color: #004368;
+}
+
+#loanAmountButtons button.selected {
+    background-color: #004368;
+    border: 2px solid #003349;
+}
+
+/* Footer and Logout Button Styles */
+footer {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer button {
+    background-color: #e63946;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+footer button:hover {
+    background-color: #c62828;
 }
