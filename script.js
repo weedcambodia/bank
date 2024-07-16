@@ -46,6 +46,19 @@ document.getElementById('serviceLink').addEventListener('click', function(event)
     showSection('service');
 });
 
+document.getElementById('loanForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const loanAmount = document.getElementById('loanAmount').value;
+    const loanTerm = document.getElementById('loanTerm').value;
+
+    // Display confirmation message
+    const confirmationMessage = `Thank you for applying for a loan of $${loanAmount} with a term of ${loanTerm} months. Please wait while our team processes your application.`;
+    document.getElementById('loanResult').innerText = confirmationMessage;
+    document.getElementById('loanResult').classList.remove('hidden');
+
+    // Optional: You can add additional logic here to submit the loan application data to a server or perform other actions.
+});
+
 function showSection(sectionId) {
     for (const section in sections) {
         if (sections.hasOwnProperty(section)) {
